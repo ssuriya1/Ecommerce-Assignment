@@ -10,8 +10,6 @@ permissions:
 
 jobs:
   builds:
-    env:
-      output_path: ./dist/ecommerce-assignment/browser
 
     runs-on: ubuntu-latest
     strategy:
@@ -39,7 +37,7 @@ jobs:
         run: mkdir root
 
       - name: Copy files to root
-        run: cp -r ${{ env.output_path }}/* root/
+        run: cp -r ${{ github.workspace }}/dist/ecommerce-assignment/browser/* root/
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
