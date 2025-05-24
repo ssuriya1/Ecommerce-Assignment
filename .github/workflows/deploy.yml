@@ -10,6 +10,9 @@ permissions:
 
 jobs:
   builds:
+    env:
+      output_path: ./dist/ecommerce-assignment/browser
+
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -32,9 +35,14 @@ jobs:
         run: |
           npm run build
 
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.output_path }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/ecommerce-assignment/browser
+          publish_dir: ${{ env.output_path }}
