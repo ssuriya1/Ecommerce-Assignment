@@ -1,0 +1,39 @@
+name: Firebase Hosting
+on:
+  push:
+    branches: ["Master"]
+
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependency
+        run: |
+          npm ci --force
+
+      - name: Build
+        run: |
+          git config --global user.email "suriyastar100@gmail.com"
+          git config --global user.name "Suriya"
+          npm run build
+          git push
+
+      - name: Firebase Deployment
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ECOMMERCE_48F29 }}
+          channelId: live
+          projectId: ecommerce-48f29

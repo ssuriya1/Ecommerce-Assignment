@@ -9,8 +9,7 @@ interface ProductVariant {
 
 @Component({
   selector: 'app-product-variants',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
+  standalone: false,
   templateUrl: './product-variants.component.html',
   styleUrls: ['./product-variants.component.scss'],
 })

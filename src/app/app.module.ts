@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,18 +20,19 @@ import { MatBadgeModule } from '@angular/material/badge';
     ProductImagesComponent,
     PriceComparisonComponent,
     ProductDetailComponent,
-    SellerListComponent
+    SellerListComponent,
+    ProductVariantsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ProductVariantsComponent,
     MatIconModule,
     MatButtonModule,
-    MatBadgeModule
+    MatBadgeModule,
+    CommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
