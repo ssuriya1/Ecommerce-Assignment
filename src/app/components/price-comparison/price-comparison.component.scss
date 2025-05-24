@@ -1,0 +1,151 @@
+.price-comparison {
+  padding: 24px 16px;
+
+  @media (max-width: 480px) {
+    padding: 16px 12px;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 16px;
+
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .filters-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      flex: 1;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      @media (max-width: 480px) {
+        gap: 12px;
+      }
+    }
+
+    .filters-right {
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+
+    .filter-chips {
+      .chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        @media (max-width: 480px) {
+          gap: 8px;
+        }
+      }
+
+      .chip-button {
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: #f5f5f5;
+        color: #333;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+
+        @media (max-width: 480px) {
+          padding: 6px 12px;
+          font-size: 13px;
+        }
+
+        &:hover {
+          background: #e0e0e0;
+        }
+
+        &.selected {
+          background: #333;
+          color: white;
+
+          &:hover {
+            background: #444;
+          }
+        }
+      }
+    }
+
+    .custom-select {
+      min-width: 200px;
+      max-width: 100%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      .select-wrapper {
+        position: relative;
+        width: 100%;
+
+        &::after {
+          content: '';
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid #666;
+          pointer-events: none;
+        }
+
+        select {
+          width: 100%;
+          padding: 12px 16px;
+          font-size: 14px;
+          border: 1px solid #e0e0e0;
+          border-radius: 20px;
+          background: white;
+          appearance: none;
+          cursor: pointer;
+          outline: none;
+          color: #333;
+
+          @media (max-width: 480px) {
+            padding: 10px 14px;
+            font-size: 13px;
+          }
+
+          &:focus {
+            border-color: #333;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 16px;
+
+    .filter-dropdowns {
+      width: 100%;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}

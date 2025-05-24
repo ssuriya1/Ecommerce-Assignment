@@ -1,0 +1,18 @@
+<div class="images-container">
+  <div class="thumbnail-list">
+    <div class="thumbnail" *ngFor="let image of thumbnails">
+      <img [src]="image.src" [alt]="image.alt">
+    </div>
+    <div class="more-images">+25</div>
+  </div>
+  
+  <div class="main-image">
+    <div class="badge-container">
+      <span class="badge">50+ guards</span>
+      <img src="assets/iphone-1.png" alt="iPhone 16 Pro Max">
+    </div>
+    <span class="favorite-button">
+      <mat-icon>favorite_border</mat-icon>
+    </span>
+  </div>
+</div>

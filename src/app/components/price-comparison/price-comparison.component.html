@@ -1,0 +1,47 @@
+<div class="price-comparison">
+  <div class="filters">
+    <div class="filters-left">
+      <div class="filter-chips">
+        <div class="chip-list">
+          <mat-icon style="cursor: pointer;">filter_list</mat-icon>
+          <button 
+            class="chip-button"
+            [class.selected]="filters.onlyInStock"
+            (click)="toggleFilter('onlyInStock')">
+            Only in stock
+          </button>
+          <button 
+            class="chip-button"
+            [class.selected]="filters.withShipping"
+            (click)="toggleFilter('withShipping')">
+            Price with shipping
+          </button>
+        </div>
+      </div>
+
+      <div class="custom-select">
+        <div class="select-wrapper">
+          <select [(ngModel)]="filters.deliveryOption" (change)="onFilterChange()">
+            <option value="default" selected>Delivery options</option>
+            <option value="all">All options</option>
+            <option value="free">Free shipping</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters-right">
+      <div class="custom-select">
+        <div class="select-wrapper">
+          <select [(ngModel)]="filters.sortBy" (change)="onFilterChange()">
+            <option value="default" selected>Recommended</option>
+            <option value="price">Lowest price</option>
+            <option value="rating">Highest rating</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-seller-list></app-seller-list>
+</div>

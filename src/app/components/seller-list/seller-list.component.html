@@ -1,0 +1,58 @@
+<div class="seller-list">
+  <div class="seller-item" *ngFor="let seller of sellers">
+    <div class="seller-header">
+      <div class="expand-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M7 10L12 15L17 10"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <div class="seller-info">
+        <img [src]="seller.logo" [alt]="seller.name" class="seller-logo" />
+        <h3 class="seller-name">{{ seller.name }}</h3>
+        <div class="rating" *ngIf="seller.rating">
+          <span class="stars">★</span>
+          <span class="rating-value">{{ seller.rating }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="product-details">
+      <span class="product-title">{{ seller.productTitle }}</span>
+
+      <div class="details-right">
+        <div class="shipping-info">
+          <span
+            class="shipping-status"
+            [class.back-order]="seller.shippingInfo === 'Back order'"
+          >
+            {{ seller.shippingInfo }}
+            <span class="delivery-time" *ngIf="seller.deliveryTime">
+              • {{ seller.deliveryTime }}
+            </span>
+          </span>
+        </div>
+
+        <span class="price">SEK {{ seller.price }}</span>
+
+        <button class="view-deal" (click)="viewDeal(seller.id)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 18L15 12L9 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="product-container">
+  <div class="breadcrumb">
+    <span>Start</span> / 
+    <span>Mobile & Wearables</span> / 
+    <span>Mobile phones</span>
+  </div>
+
+  <div class="product-main">
+    <div class="product-left">
+      <app-product-images></app-product-images>
+    </div>
+    
+    <div class="product-right">
+      <h1>Apple iPhone 16 Pro Max, <span>256GB</span></h1>
+      
+      <div class="product-rating">
+        <mat-icon>star</mat-icon>
+        <span>4.1</span> | 
+        <button mat-button>
+          <mat-icon>notifications</mat-icon>
+          Monitor price
+        </button> | 
+        <button mat-button>
+          <mat-icon>compare</mat-icon>
+          Compare
+        </button>
+      </div>
+
+      <div class="product-description">
+        <p>
+          Experience the next generation of mobile technology with the iPhone 16 Pro Max 256GB, equipped with the Apple A18 Pro Chip and fast 5G connectivity. <a href="">read more</a>
+        </p>
+        <p>
+          Compare price from <strong>SEK 17,190</strong> to <strong>SEK 22,038</strong> Investment in <a href="">Mobile phones</a>
+        </p>
+      </div>
+
+      <app-product-variants></app-product-variants>
+    </div>
+  </div>
+
+  <div class="product-tabs">
+    <div class="tab-header">
+      <button 
+        *ngFor="let tab of tabs; let i = index" 
+        class="tab-button" 
+        [class.active]="selectedTab === i"
+        (click)="selectTab(i)">
+        {{tab.label}}
+      </button>
+    </div>
+    
+    <div class="tab-content">
+      <div class="tab-panel" [class.active]="selectedTab === 0">
+        <app-price-comparison></app-price-comparison>
+      </div>
+      <div class="tab-panel" [class.active]="selectedTab === 1">
+        Reviews content
+      </div>
+      <div class="tab-panel" [class.active]="selectedTab === 2">
+        Price development content
+      </div>
+      <div class="tab-panel" [class.active]="selectedTab === 3">
+        About content
+      </div>
+      <div class="tab-panel" [class.active]="selectedTab === 4">
+        Specifications content
+      </div>
+    </div>
+  </div>
+</div>

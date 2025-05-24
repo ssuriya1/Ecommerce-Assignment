@@ -1,0 +1,26 @@
+<div class="variants-container">
+  <div class="storage-options">
+    <div class="option-list">
+      <button 
+        *ngFor="let storage of storageOptions"
+        class="option-chip"
+        [class.selected]="selectedStorage === storage"
+        (click)="onStorageSelect(storage)">
+        {{storage}}
+      </button>
+    </div>
+  </div>
+
+  <div class="color-options">
+    <div class="option-list">
+      <button 
+        *ngFor="let color of colorOptions"
+        class="option-chip"
+        [class.selected]="selectedColor === color"
+        (click)="onColorSelect(color)">
+        <span class="color-indicator" *ngIf="color !== 'all'" [style.background-color]="color"></span>
+        {{color | titlecase}}
+      </button>
+    </div>
+  </div>
+</div>
