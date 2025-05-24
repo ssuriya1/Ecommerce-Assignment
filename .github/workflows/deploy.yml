@@ -35,14 +35,17 @@ jobs:
         run: |
           npm run build
 
+      - name: Create root folder
+        run: mkdir root
+
+      - name: Copy files to root
+        run: cp -r ${{ env.output_path }}/* root/
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.output_path }}
+          path: root
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ env.output_path }}
