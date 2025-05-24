@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { ProductVariantsComponent } from '../product-variants/product-variants.component';
-import { PriceComparisonComponent } from '../price-comparison/price-comparison.component';
 
 interface ProductDetails {
   id: string;
